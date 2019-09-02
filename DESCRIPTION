@@ -1,0 +1,18 @@
+Package: eQTLMAPT
+Type: Package
+Title: eQTL Mediaiton Analysis with accelerated Permutation Testing
+        approaches
+Version: 0.1.0
+Author: QidiPeng
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: Do genome-intermediary analysis, use: 
+    whether to use a Adaptive Permutation scheme, 
+    whether to use the GPD fit to calculate the empirical P-value, 
+    whether to use the Adaptive Confunding adjustments.
+License: GPL
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Depends: parallel, readr
+NeedsCompilation: no
+Packaged: 2019-08-30 07:40:53 UTC; peng
