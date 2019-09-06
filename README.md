@@ -6,7 +6,8 @@ eQTLMAPT - eQTL Mediaiton Analysis with accelerated Permutation Testing approach
 
 ## Dependences
 1. parallel  
-2. readr  
+2. readr
+
 R version 3.2.3
 
 ## Building xQTLImp
