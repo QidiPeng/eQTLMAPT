@@ -11,7 +11,7 @@
 R version 3.2.3
 
 ## Building xQTLImp
-'install.packages("devtools", dependencies = T)'  
+'<install.packages("devtools", dependencies = T)>'  
 'devtools::install_github("QidiPeng/eQTLMAPT")'
 
 ## 输入
