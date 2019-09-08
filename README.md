@@ -11,7 +11,7 @@
 ## Input
 ```bash
 `snp.dat`          The genotype matrix.  Each row is an eQTL, each column is a sample.  
-`fea.dat`          The gene expression profile matrix. Each row is a gene's expression profile, each column is a sample.  
+`fea.dat`          The gene expression profile matrix. Each row is a gene\'s expression profile, each column is a sample.  
 `known.conf/conf`  The known confounder matrix which is adjusted in all mediation tests. Each row is a confounder, each column is a sample. 
 `cov.pool`         The pool of candidate confounding variables from which potential confounders are adaptively selected to adjust for each mediation test. Each row is a covariate, each column is a sample.  Only need to sepcify in adaptive confounder selection mode, if not given in this mode, principal components will be calculated instead.
 `trios.idx`        The trios matrix of 3 columns. Each row represents a trio (eQTL, cis-gene, trans-gene). The first element represents the index of the eQTL in `snp.dat`; The second element represents the index of cis-gene in `fea.dat`,  and the third element represents the index of the trans-gene in `fea.dat`.  
