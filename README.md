@@ -48,4 +48,4 @@ The `dat` object used here is packaged in [example.rda](https://github.com/QidiP
 
 
 ## Contact
-If you need help, please contact **ydwang@hit.edu.cn**, **jiajiepeng@nwpu.edu.cn** or **1571608336@qq.com**.
+If you need help, please contact *ydwang at hit dot edu dot cn*, *jiajiepeng at nwpu at edu at cn* or *1571608336 at qq at com*.
