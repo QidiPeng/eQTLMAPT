@@ -8,7 +8,7 @@
     install.packages("devtools", dependencies = T)  
     devtools::install_github("hitbc/eQTLMAPT")
 
-## Input data
+## Input
 `snp.dat`  A eQTL genotype matrix.  Each row is an eQTL, each column is a sample.  
 `fea.dat`  A feature profile matrix. Each row is for one feature profile, each column is a sample.  
 `conf/known.conf`  A known confounders matrix which is adjusted in all mediation tests. Each row is a confounder, each column is a sample.   
@@ -17,7 +17,7 @@
 `cl`  If parallel computing is required, cluster information needs to be provided.  
 For other parameter information, refer specifically to [eQTLMAPT](https://github.com/hitbc/eQTLMAPT).  
 
-## Results/Output
+## Output
 `nperm`  If adaptive permutation scheme is adopted, the actual permutation number is output.  
 `nominal.p`  The nominal P-values.  
 `empirical.p`  The empirical P-Value.  
