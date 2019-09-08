@@ -44,8 +44,8 @@ cl = makeCluster(4)
 # When the empirical P-value is less than `gpd.perm` = 0.01, a more accurate empirical P-value is estimated using the GPD fit.  
  output <- gmap.ac.gpd(snp.dat = dat$snp.dat, fea.dat = dat$fea.dat, known.conf = dat$known.conf, trios.idx = dat$trios.idx[1:10,], cl = cl, cov.pool = NULL, pc.num = 10, Minperm = 100, Maxperm = 10000, gpd.perm = 0.01)  
 ```
- The `dat` object used here is packaged in [example.rda](https://github.com/QidiPeng/eQTLMAPT/blob/master/data/example.rda).
+The `dat` object used here is packaged in [example.rda](https://github.com/QidiPeng/eQTLMAPT/blob/master/data/example.rda).
 
 
 ## Contact
-If you need help, please contact **ydwang@hit.edu.cn** or **jiajiepeng@nwpu.edu.cn**.
+If you need help, please contact **ydwang@hit.edu.cn**, **jiajiepeng@nwpu.edu.cn** or **1571608336@qq.com**.
