@@ -11,7 +11,7 @@
 ## Input data
 `snp.dat`  A eQTL genotype matrix.  Each row is an eQTL, each column is a sample.  
 `fea.dat`  A feature profile matrix. Each row is for one feature profile, each column is a sample.  
-`conf/known.conf`  A known confounders matrix which is adjusted in all mediation tests. Each row is a confounder, each column is a sample. 
+`conf/known.conf`  A known confounders matrix which is adjusted in all mediation tests. Each row is a confounder, each column is a sample.   
 `cov.pool`  The pool of candidate confounding variables from which potential confounders are adaptively selected to adjust for each mediation test. Each row is a covariate, each column is a sample.  
 `trios.idx`  The matrix of selected trios indexes (row numbers) for mediation tests. Each row consists of the index (i.e., row number) of the eQTL in eQTL genotype matrix, the index of cis-gene transcript in feature profile matrix, and the index of trans-gene in feature profile matrix.  
 `cl`  If parallel computing is required, cluster information needs to be provided.  
