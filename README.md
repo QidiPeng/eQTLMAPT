@@ -6,10 +6,15 @@ eQTLMAPT uses R language to achieve fast and accurate eQTL mediation analysis wi
 
 ## Installation
 '<install.packages("devtools", dependencies = T)>'  
-'devtools::install_github("QidiPeng/eQTLMAPT")'
+'devtools::install_github("QidiPeng/eQTLMAPT")'路径需要修改
 
-## Input
-
+## Input data
+The eQTL genotype matrix consists of one eQTL per row and one sample per column.  
+The feature profile matrix consists of one feature profile per row and one sample per column.  
+The confounders matrix which consists of one confounder per row and ne sample per column. There are two types of confounders matrix: known confounders matrix which is adjusted in all mediation tests, and a pool of candidate confounding variables from which potential confounders are adaptively selected to adjust for each mediation test.  
+The matrix of selected trios indexes (row numbers) for mediation tests. Each row consists of the index (i.e., row number) of the eQTL in eQTL genotype matrix, the index of cis-gene transcript in feature profile matrix, and the index of trans-gene in feature profile matrix.  
+If parallel computing is required, cluster information needs to be provided.  
+For other parameter information, refer specifically to [eQTLMAPT](https://github.com/QidiPeng/eQTLMAPT)
 
 ## Running
 
