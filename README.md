@@ -32,7 +32,7 @@ For other parameter information, refer specifically to [eQTLMAPT](https://github
 
 
 ## Citation
-Paper Title Fast and accurate eQTL mediation analysis eQTLMAPT: fast and accurate eQTL mediation analysis with efficient permutation testing approaches, address [paper]().
+Paper are published at [paper]().
 
 ## Contact
-If you need help, please contact []。
+If you need help, please contact **ydwang@hit.edu.cn** or **jiajiepeng@nwpu.edu.cn**。
