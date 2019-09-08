@@ -1,4 +1,4 @@
-## cov.pool 与 fea.dat 不能同时为NULL
+#'
 #' @title This function get the Adaptive Confunding adjustments
 #' @importFrom parallel parLapply
 #'
