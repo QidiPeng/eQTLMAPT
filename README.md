@@ -24,7 +24,7 @@ For other parameter information, refer specifically to [eQTLMAPT](https://github
     ## The maximum number of permutation is `Maxperm` = 10000 in the adaptive permutation scheme. And when permutation number better than original statistics upon `Minperm` = 100 stop.  
     ## When the empirical P-value is less than `gpd.perm` = 0.01, a more accurate empirical P-value is estimated using the GPD fit.  
     output <- gmap.ac.gpd(snp.dat = dat$snp.dat, fea.dat = dat$fea.dat, known.conf = dat$known.conf, trios.idx = dat$trios.idx[1:10,], cl = NULL, cov.pool = cl, pc.num = 10, Minperm = 100, Maxperm = 10000, gpd.perm = 0.01)  
-Test data please click [example](https://github.com/QidiPeng/eQTLMAPT/blob/master/data/example.rda)
+Test data please click [example](https://github.com/QidiPeng/eQTLMAPT/blob/master/data/example.rda).
 
 ## Output
 `nperm`  If adaptive permutation scheme is adopted, the actual permutation number is output.  
@@ -44,4 +44,4 @@ Test data please click [example](https://github.com/QidiPeng/eQTLMAPT/blob/maste
 Paper are published at [paper]().
 
 ## Contact
-If you need help, please contact **ydwang@hit.edu.cn** or **jiajiepeng@nwpu.edu.cn**。
+If you need help, please contact **ydwang@hit.edu.cn** or **jiajiepeng@nwpu.edu.cn**.
