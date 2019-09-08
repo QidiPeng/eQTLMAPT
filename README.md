@@ -17,6 +17,14 @@
 `cl`  If parallel computing is required, cluster information needs to be provided.  
 For other parameter information, refer specifically to [eQTLMAPT](https://github.com/hitbc/eQTLMAPT).  
 
+## Example
+    ## generate a cluster with 4 nodes for parallel computing  
+    cl = makeCluster(4)    
+    ## Using the first `pc.num` = 10 PCs as candidate confunding variable pools.  
+    ## The maximum number of permutation is `Maxperm` = 10000 in the adaptive permutation scheme. And when permutation number better than original statistics upon `Minperm` = 100 stop.  
+    ## When the empirical P-value is less than `gpd.perm` = 0.01, a more accurate empirical P-value is estimated using the GPD fit.  
+    output <- gmap.ac.gpd(snp.dat = dat$snp.dat, fea.dat = dat$fea.dat, known.conf = dat$known.conf, trios.idx = dat$trios.idx[1:10,], cl = NULL, cov.pool = cl, pc.num = 10, Minperm = 100, Maxperm = 10000, gpd.perm = 0.01)
+
 ## Output
 `nperm`  If adaptive permutation scheme is adopted, the actual permutation number is output.  
 `nominal.p`  The nominal P-values.  
