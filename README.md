@@ -9,26 +9,26 @@
     devtools::install_github("QidiPeng/eQTLMAPT")
 
 ## Input
-`snp.dat`  A eQTL genotype matrix.  Each row is an eQTL, each column is a sample.  
-`fea.dat`  A feature profile matrix. Each row is for one feature profile, each column is a sample.  
-`conf/known.conf`  A known confounders matrix which is adjusted in all mediation tests. Each row is a confounder, each column is a sample.   
+`snp.dat`  The genotype matrix.  Each row is an eQTL, each column is a sample.  
+`fea.dat`  The gene expression profile matrix. Each row is a gene's expression profile, each column is a sample.  
+`conf/known.conf`  The known confounder matrix which is adjusted in all mediation tests. Each row is a confounder, each column is a sample.   
 `cov.pool`  The pool of candidate confounding variables from which potential confounders are adaptively selected to adjust for each mediation test. Each row is a covariate, each column is a sample.  
-`trios.idx`  The matrix of selected trios indexes (row numbers) for mediation tests. Each row consists of the index (i.e., row number) of the eQTL in eQTL genotype matrix, the index of cis-gene transcript in feature profile matrix, and the index of trans-gene in feature profile matrix.  
+`trios.idx`  The trios matrix of 3 columns. Each row represents a trio (eQTL, cis-gene, trans-gene). The first element represents the index of the eQTL in `snp.dat`; The second element represents the index of cis-gene in `fea.dat`,  and the third element represents the index of the trans-gene in `fea.dat`.  
 `cl`  If parallel computing is required, cluster information needs to be provided.  
 For other parameter information, refer specifically to help function.  
 
 ## Output
-`nperm`  If adaptive permutation scheme is adopted, the actual permutation number is output.  
-`nominal.p`  The nominal P-values.  
-`empirical.p`  The empirical P-Value.  
-`empirical.p.gpd`  The empirical P-value obtained by GPD fitting.  
-`std.error`  The std.error of cis-gene in liner regression.  
-`t_stat`  The t_stat of cis-gene in liner regression.  
-`beta`  The beta of SNP in liner regression.  
-`beta.total`  The beta of cis-gene in liner regression.  
-`beta.change`  The proportions mediated.  
-`pc.matrix`  PCs will be returned if the PCs based on expression data are used as the pool of potential confounders. Each column is a PC.  
-`sel.conf.ind`  An indicator matrix with dimension of the number of trios by the number of covariates in `cov.pool` or `pc.matrix` if the principal components (PCs) based on expression data are used as the pool of potential confounders.  
+`nperm`  The executed permutation times, for adaptive permutation scheme only.  
+`nominal.p`  The nominal P-value by testing the significance of `beta2` in the regression formula `trans_gene ~ beta1 * SNP + beta2 * cis_gene + err`, using t-test.  
+`empirical.p`  The permutation P-value by testing the significance of `beta2` using permutation test.  
+`empirical.p.gpd`  The permutation P-value estimated by GPD approximation.  
+`std.error`  The standard error of `beta2`.  
+`t_stat`  The `t-statistics` in testing the significance of `beta2`.  
+`beta`  The `beta1` in the regression formula `trans_gene ~ beta1 * SNP + beta2 * cis_gene + err`.  
+`beta.total`  The `beta.total` in the regression formula `trans_gene ~ beta.total * SNP + err`.  
+`beta.change`  The proportions mediated, calculated by `(beta.total-beta)/beta.total`.  
+`pc.matrix`  Principal components (PCs) matrix of expression profiles. This will be returned if the PCs are used as the pool of potential confounders. Each column is a PC.  
+`sel.conf.ind`  An indicator matrix with dimension to be the number of trios by the number of covariates in `cov.pool` or `pc.matrix` if the principal components (PCs) based on expression data are used as the pool of potential confounders.  
 
 ## Demo data
     ## generate a cluster with 4 nodes for parallel computing  
