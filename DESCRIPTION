@@ -4,7 +4,7 @@ Title: eQTL Mediaiton Analysis with accelerated Permutation Testing
         approaches
 Version: 0.1.0
 Author: QidiPeng, TaoWang
-Maintainer: The package maintainer <yourself@somewhere.net>
+Maintainer: The package maintainer <13753103470@163.com>
 Description: Do genome-intermediary analysis, use: 
     whether to use a Adaptive Permutation scheme, 
     whether to use the GPD fit to calculate the empirical P-value, 
