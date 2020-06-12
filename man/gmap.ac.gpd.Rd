@@ -5,9 +5,20 @@
 \title{Genomic Mediation analysis with Adaptive Petmutation scheme and
   Adaptive Confunders and Generalized Pareto Distribution(GPD)}
 \usage{
-gmap.ac.gpd(snp.dat, fea.dat, known.conf, trios.idx, cl = NULL,
-  cov.pool = NULL, pc.num = 30, Minperm = 100, Maxperm = 10000,
-  gpd.perm = 0.01, fdr = 0.05, fdr_filter = 0.1)
+gmap.ac.gpd(
+  snp.dat,
+  fea.dat,
+  known.conf,
+  trios.idx,
+  cl = NULL,
+  cov.pool = NULL,
+  pc.num = 30,
+  Minperm = 100,
+  Maxperm = 10000,
+  gpd.perm = 0.01,
+  fdr = 0.05,
+  fdr_filter = 0.1
+)
 }
 \arguments{
 \item{snp.dat}{The eQTL genotype matrix. Each row is an eQTL, each column is
@@ -34,7 +45,8 @@ row is a covariate, each column is a sample. We set \code{cov.pool}=NULL as
 default, which will calculate PCs of features as cov.pool.}
 
 \item{pc.num}{If \code{cov.pool}=NULL, use the previous num PCs as 
-\code{cov.pool}.We set \code{pc.num}=30 as default.}
+\code{cov.pool}.We set \code{pc.num}=30 as default. Please ensure the value 
+is less than the column of the pool.}
 
 \item{Minperm}{The minimum number of permutations. When the number of
 permutation statistics better than the original statistic is greater than

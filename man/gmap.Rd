@@ -4,8 +4,15 @@
 \alias{gmap}
 \title{Genomic Mediation analysis with Adaptive Petmutation scheme}
 \usage{
-gmap(snp.dat, fea.dat, conf, trios.idx, cl = NULL, Minperm = 100,
-  Maxperm = 10000)
+gmap(
+  snp.dat,
+  fea.dat,
+  conf,
+  trios.idx,
+  cl = NULL,
+  Minperm = 100,
+  Maxperm = 10000
+)
 }
 \arguments{
 \item{snp.dat}{The eQTL genotype matrix. Each row is an eQTL, each column is
@@ -75,13 +82,13 @@ The function performs genomic mediation analysis with Adaptive
 \examples{
 
 output <- gmap(conf = dat$known.conf, fea.dat = dat$fea.dat, snp.dat = dat$snp.dat,
-               trios.idx = dat$trios.idx[1:10,], Minperm = 100, Maxperm = 10000)
+               trios.idx = dat$trios.idx[1:10,], Minperm = 10, Maxperm = 1000)
 
 \dontrun{
   ## generate a cluster with 2 nodes for parallel computing
   cl <- makeCluster(2)
   output <- gmap(conf = dat$known.conf, fea.dat = dat$fea.dat, snp.dat = dat$snp.dat,
-                 trios.idx = dat$trios.idx[1:10,], cl = cl, Minperm = 100, Maxperm = 10000)
+                 trios.idx = dat$trios.idx[1:10,], cl = cl, Minperm = 10, Maxperm = 1000)
   stopCluster(cl)
 }
 

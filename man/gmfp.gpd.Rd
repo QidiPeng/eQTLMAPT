@@ -5,8 +5,15 @@
 \title{Genomic Mediation analysis with Fixed Permutation scheme and
   Generalized Pareto Distribution(GPD)}
 \usage{
-gmfp.gpd(snp.dat, fea.dat, conf, trios.idx, cl = NULL, nperm = 10000,
-  gpd.perm = 0.01)
+gmfp.gpd(
+  snp.dat,
+  fea.dat,
+  conf,
+  trios.idx,
+  cl = NULL,
+  nperm = 10000,
+  gpd.perm = 0.01
+)
 }
 \arguments{
 \item{snp.dat}{The eQTL genotype matrix. Each row is an eQTL, each column is

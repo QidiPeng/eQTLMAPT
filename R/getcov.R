@@ -1,4 +1,4 @@
-#'
+## cov.pool 与 fea.dat 不能同时为NULL
 #' @title This function get the Adaptive Confunding adjustments
 #' @importFrom parallel parLapply
 #'
@@ -90,6 +90,8 @@ conf.fdr <- function(i, tripletmatrix, covariates, conf_candidates, fdr){
 	cov_length <- length(cov)
 	str_fdr <- rep(0, n_tri)
 	candidate_trio_id <- sort(which(conf_candidates[, i] == 1))
+	if(sum(candidate_trio_id) == 0)
+	    return(str_fdr)
 	if(length(cov) == (n_obs + 1)){
 		pi0 = 1 - cov[cov_length]
 		cov <- cov[-cov_length]

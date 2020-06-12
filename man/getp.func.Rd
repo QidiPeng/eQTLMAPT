@@ -4,9 +4,18 @@
 \alias{getp.func}
 \title{This function caculate P-value for every trio}
 \usage{
-getp.func(i, triomatrix, confounders, Minperm = 100, Maxperm = 10000,
-  use.gpd = FALSE, gpd.perm = 0.01, pool_cov = NULL,
-  est_conf_pool_idx = NULL, use.PC = FALSE)
+getp.func(
+  i,
+  triomatrix,
+  confounders,
+  Minperm = 100,
+  Maxperm = 10000,
+  use.gpd = FALSE,
+  gpd.perm = 0.01,
+  pool_cov = NULL,
+  est_conf_pool_idx = NULL,
+  use.PC = FALSE
+)
 }
 \arguments{
 \item{i}{Trios index in triomatrix}

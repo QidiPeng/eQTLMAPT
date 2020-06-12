@@ -72,7 +72,8 @@
 #'   row is a covariate, each column is a sample. We set \code{cov.pool}=NULL as
 #'   default, which will calculate PCs of features as cov.pool.
 #' @param pc.num If \code{cov.pool}=NULL, use the previous num PCs as 
-#'   \code{cov.pool}.We set \code{pc.num}=30 as default.
+#'   \code{cov.pool}.We set \code{pc.num}=30 as default. Please ensure the value 
+#'   is less than the column of the pool.
 #' @param Minperm The minimum number of permutations. When the number of
 #'   permutation statistics better than the original statistic is greater than
 #'   \code{Minperm}, stop permutation and directly calculate the empirical P
@@ -205,16 +206,19 @@ gmap.ac.gpd <- function(snp.dat, fea.dat, known.conf, trios.idx, cl = NULL, cov.
 								lapply(known_sel_pool_output, function(x) x$empirical.p.gpd)), byrow = F, ncol = 2)
 	nperm <- matrix(c(lapply(known_output, function(x) x$nperm),
 	                  lapply(known_sel_pool_output, function(x) x$nperm)), byrow = F, ncol = 2)
+	runtime <- matrix(c(lapply(known_output, function(x) x$runtime),
+	                            lapply(known_sel_pool_output, function(x) x$runtime)), byrow = F, ncol = 2)
 
 	if(use.PC){
 		output <- list(nperm = nperm, empirical.p = empirical.p, empirical.p.gpd = empirical.p.gpd, nominal.p = nominal.p,
 		               std.error = std.error, t_stat = t_stat, beta = beta, beta.total = beta.total, beta.change = beta.change,
-		               pc.matrix = all_pc, sel.conf.ind = est_conf_pool_idx)
+		               pc.matrix = all_pc, sel.conf.ind = est_conf_pool_idx, runtime = runtime)
 	}else{
 		output <- list(nperm = nperm, empirical.p = empirical.p, empirical.p.gpd = empirical.p.gpd, nominal.p = nominal.p,
 		               std.error = std.error, t_stat = t_stat, beta = beta, beta.total = beta.total, beta.change = beta.change,
-		               sel.conf.ind = est_conf_pool_idx)
+		               sel.conf.ind = est_conf_pool_idx, runtime = runtime)
 	}
 
 	return(output)
 }
+

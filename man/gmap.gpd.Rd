@@ -5,8 +5,16 @@
 \title{Genomic Mediation analysis with Fixed Permutation scheme and
   Generalized Pareto Distribution(GPD)}
 \usage{
-gmap.gpd(snp.dat, fea.dat, conf, trios.idx, cl = NULL, Minperm = 100,
-  Maxperm = 10000, gpd.perm = 0.01)
+gmap.gpd(
+  snp.dat,
+  fea.dat,
+  conf,
+  trios.idx,
+  cl = NULL,
+  Minperm = 100,
+  Maxperm = 10000,
+  gpd.perm = 0.01
+)
 }
 \arguments{
 \item{snp.dat}{The eQTL genotype matrix. Each row is an eQTL, each column is
@@ -94,7 +102,7 @@ The function performs genomic mediation analysis with Fixed
 \examples{
 
 output <- gmap.gpd(conf = dat$known.conf, fea.dat = dat$fea.dat, snp.dat = dat$snp.dat,
-               trios.idx = dat$trios.idx[1:10,], Minperm = 100, Maxperm = 10000)
+               trios.idx = dat$trios.idx[1:10,], Minperm = 10, Maxperm = 1000)
 
 \dontrun{
   ## generate a cluster with 2 nodes for parallel computing
@@ -104,7 +112,7 @@ output <- gmap.gpd(conf = dat$known.conf, fea.dat = dat$fea.dat, snp.dat = dat$s
      empirical P-value is estimated using the GPD fit.
   output <- gmap.gpd(conf = dat$known.conf, fea.dat = dat$fea.dat,
                      snp.dat = dat$snp.dat, trios.idx = dat$trios.idx[1:10,],
-                     cl = cl, Minperm = 100, Maxperm = 10000, gpd.perm = 0.02)
+                     cl = cl, Minperm = 10, Maxperm = 1000, gpd.perm = 0.02)
 
   stopCluster(cl)
 }

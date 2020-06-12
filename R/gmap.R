@@ -63,13 +63,13 @@
 #' @examples
 #'
 #' output <- gmap(conf = dat$known.conf, fea.dat = dat$fea.dat, snp.dat = dat$snp.dat,
-#'                trios.idx = dat$trios.idx[1:10,], Minperm = 100, Maxperm = 10000)
+#'                trios.idx = dat$trios.idx[1:10,], Minperm = 10, Maxperm = 1000)
 #'
 #' \dontrun{
 #'   ## generate a cluster with 2 nodes for parallel computing
 #'   cl <- makeCluster(2)
 #'   output <- gmap(conf = dat$known.conf, fea.dat = dat$fea.dat, snp.dat = dat$snp.dat,
-#'                  trios.idx = dat$trios.idx[1:10,], cl = cl, Minperm = 100, Maxperm = 10000)
+#'                  trios.idx = dat$trios.idx[1:10,], cl = cl, Minperm = 10, Maxperm = 1000)
 #'   stopCluster(cl)
 #' }
 #'
@@ -103,9 +103,10 @@ gmap <- function(snp.dat, fea.dat, conf, trios.idx, cl = NULL, Minperm = 100, Ma
 	beta.change <- matrix(unlist(lapply(output, function(x) x$beta.change), use.names = FALSE), byrow = T, ncol = 1)
 	empirical.p <- matrix(unlist(lapply(output, function(x) x$empirical.p), use.names = FALSE), byrow = T, ncol = 1)
 	nperm <- matrix(unlist(lapply(output, function(x) x$nperm), use.names = FALSE), byrow = T, ncol = 1)
+	runtime <- matrix(unlist(lapply(output, function(x) x$runtime), use.names = FALSE), byrow = T, ncol = 1)
 
 	output <- list(nperm = nperm, empirical.p = empirical.p, nominal.p = nominal.p,
-	               std.error = std.error, t_stat = t_stat, beta = beta, beta.total = beta.total, beta.change = beta.change)
+	               std.error = std.error, t_stat = t_stat, beta = beta, beta.total = beta.total, beta.change = beta.change, runtime = runtime)
 
 	return(output)
 }

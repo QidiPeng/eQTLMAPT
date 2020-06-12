@@ -94,9 +94,10 @@ gmfp <- function(snp.dat, fea.dat, conf, trios.idx, cl = NULL, nperm = 10000){
 	beta.change <- matrix(unlist(lapply(output, function(x) x$beta.change), use.names = FALSE), byrow = T, ncol = 1)
 	empirical.p <- matrix(unlist(lapply(output, function(x) x$empirical.p), use.names = FALSE), byrow = T, ncol = 1)
 #	nperm <- matrix(unlist(lapply(output, function(x) x$nperm), use.names = FALSE), byrow = T, ncol = 1)
+	runtime <- matrix(unlist(lapply(output, function(x) x$runtime), use.names = FALSE), byrow = T, ncol = 1)
 
 	output <- list(empirical.p = empirical.p, nominal.p = nominal.p, std.error = std.error,
-	               t_stat = t_stat, beta = beta, beta.total = beta.total, beta.change = beta.change)
+	               t_stat = t_stat, beta = beta, beta.total = beta.total, beta.change = beta.change, runtime = runtime)
 
 	return(output)
 }

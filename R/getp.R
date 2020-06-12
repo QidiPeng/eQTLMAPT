@@ -77,9 +77,11 @@ get.beta.change <- function(beta_direct, beta_total) {
 #'
 getp.func <- function(i, triomatrix, confounders, Minperm=100, Maxperm=10000, use.gpd = FALSE, gpd.perm = 0.01,
 						pool_cov = NULL, est_conf_pool_idx = NULL, use.PC = FALSE) {
-	treatment <- triomatrix[, i, 1]
-	mediator <- triomatrix[, i, 2]
-	outcome <- triomatrix[, i, 3]
+    begin.time = proc.time()
+    
+	treatment <- triomatrix[, i, 1] #L
+	mediator <- triomatrix[, i, 2] #C
+	outcome <- triomatrix[, i, 3] #T
 
 	# Adaptive Confunding adjustment
 	if(!is.null(pool_cov) && !is.null(est_conf_pool_idx)){
@@ -137,15 +139,17 @@ getp.func <- function(i, triomatrix, confounders, Minperm=100, Maxperm=10000, us
 	r <- sum(abs(t_stat) <= abs(t_stat_perm))
 	empirical.p <- (r+1)/(nperm+1)
 
+	end.time = proc.time()
 	## empirical.p using GPD fit
 	if(use.gpd){
 		empirical.p.gpd <- Ppermest(abs(t_stat), abs(t_stat_perm), proportion = gpd.perm)
 		output <- list(nperm = nperm, nominal.p = nominal.p, t_stat = t_stat, std.error = indirect$std,
 		               beta = indirect$beta, beta.total = indirect$beta.total, beta.change = beta.change,
-		               empirical.p = empirical.p, empirical.p.gpd = empirical.p.gpd)
+		               empirical.p = empirical.p, empirical.p.gpd = empirical.p.gpd, runtime = (end.time-begin.time)[1])
 	}else{
 		output <- list(nperm = nperm, nominal.p = nominal.p, t_stat = t_stat, std.error = indirect$std,
-		               beta = indirect$beta, beta.total = indirect$beta.total, beta.change = beta.change, empirical.p = empirical.p)
+		               beta = indirect$beta, beta.total = indirect$beta.total, beta.change = beta.change, 
+		               empirical.p = empirical.p, runtime = (end.time-begin.time)[1])
 	}
 	return(output)
 }

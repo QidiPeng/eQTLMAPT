@@ -84,7 +84,7 @@
 #' @examples
 #'
 #' output <- gmap.gpd(conf = dat$known.conf, fea.dat = dat$fea.dat, snp.dat = dat$snp.dat,
-#'                trios.idx = dat$trios.idx[1:10,], Minperm = 100, Maxperm = 10000)
+#'                trios.idx = dat$trios.idx[1:10,], Minperm = 10, Maxperm = 1000)
 #'
 #' \dontrun{
 #'   ## generate a cluster with 2 nodes for parallel computing
@@ -94,7 +94,7 @@
 #'      empirical P-value is estimated using the GPD fit.
 #'   output <- gmap.gpd(conf = dat$known.conf, fea.dat = dat$fea.dat,
 #'                      snp.dat = dat$snp.dat, trios.idx = dat$trios.idx[1:10,],
-#'                      cl = cl, Minperm = 100, Maxperm = 10000, gpd.perm = 0.02)
+#'                      cl = cl, Minperm = 10, Maxperm = 1000, gpd.perm = 0.02)
 #'
 #'   stopCluster(cl)
 #' }
@@ -130,9 +130,10 @@ gmap.gpd <- function(snp.dat, fea.dat, conf, trios.idx, cl = NULL, Minperm = 100
 	empirical.p <- matrix(unlist(lapply(output, function(x) x$empirical.p), use.names = FALSE), byrow = T, ncol = 1)
 	empirical.p.gpd <- matrix(unlist(lapply(output, function(x) x$empirical.p.gpd), use.names = FALSE), byrow = T, ncol = 1)
 	nperm <- matrix(unlist(lapply(output, function(x) x$nperm), use.names = FALSE), byrow = T, ncol = 1)
+	runtime <- matrix(unlist(lapply(output, function(x) x$runtime), use.names = FALSE), byrow = T, ncol = 1)
 
 	output <- list(nperm = nperm, empirical.p = empirical.p, empirical.p.gpd = empirical.p.gpd, nominal.p = nominal.p,
-	               std.error = std.error, t_stat = t_stat, beta = beta, beta.total = beta.total, beta.change = beta.change)
+	               std.error = std.error, t_stat = t_stat, beta = beta, beta.total = beta.total, beta.change = beta.change, runtime = runtime)
 
 	return(output)
 }

@@ -5,9 +5,18 @@
 \title{Genomic Mediation analysis with Fixed Petmutation scheme and Adaptive
   Confunders}
 \usage{
-gmfp.ac(snp.dat, fea.dat, known.conf, trios.idx, cl = NULL,
-  cov.pool = NULL, pc.num = 30, nperm = 10000, fdr = 0.05,
-  fdr_filter = 0.1)
+gmfp.ac(
+  snp.dat,
+  fea.dat,
+  known.conf,
+  trios.idx,
+  cl = NULL,
+  cov.pool = NULL,
+  pc.num = 30,
+  nperm = 10000,
+  fdr = 0.05,
+  fdr_filter = 0.1
+)
 }
 \arguments{
 \item{snp.dat}{The eQTL genotype matrix. Each row is an eQTL, each column is
@@ -34,7 +43,8 @@ row is a covariate, each column is a sample. We set \code{cov.pool}=NULL as
 default, which will calculate PCs of features as cov.pool.}
 
 \item{pc.num}{If \code{cov.pool}=NULL, use the previous num PCs as 
-\code{cov.pool}.We set \code{pc.num}=30 as default.}
+\code{cov.pool}.We set \code{pc.num}=30 as default. Please ensure the value 
+is less than the column of the pool.}
 
 \item{nperm}{The number of permutations for testing mediation. If
 \code{nperm}=0, only the nominal P-value is calculated. We set
