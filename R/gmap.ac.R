@@ -64,8 +64,8 @@
 #'   row is a covariate, each column is a sample. We set \code{cov.pool}=NULL as
 #'   default, which will calculate PCs of features as cov.pool.
 #' @param pc.num If \code{cov.pool}=NULL, use the previous num PCs as 
-#'   \code{cov.pool}.We set \code{pc.num}=30 as default. Please ensure the value 
-#'   is less than the column of the pool.
+#'   \code{cov.pool}.We set \code{pc.num}=30 as default.  Please ensure the value 
+#'   is less than the number of confusion variable number in the pool.
 #' @param Minperm The minimum number of permutations. When the number of
 #'   permutation statistics better than the original statistic is greater than
 #'   \code{Minperm}, stop permutation and directly calculate the empirical P

@@ -15,6 +15,6 @@ LazyData: true
 RoxygenNote: 7.0.1
 Depends: parallel, readr
 NeedsCompilation: no
-Packaged: 2020-06-12 09:28:30 UTC; peng
+Packaged: 2020-06-12 10:19:36 UTC; peng
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
