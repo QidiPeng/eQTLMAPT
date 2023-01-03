@@ -3,8 +3,9 @@ EPS <- 2.220446049250313e-16
 
 ## Implement matlab eps function
 eps <- function(x){
-	if(abs(x) < REALMIN)
+	if(abs(x) < REALMIN){
 		return(2^(-1074))
+		}
 
 	E <- log(abs(x), base=2)
 	return(2^(E-52))
