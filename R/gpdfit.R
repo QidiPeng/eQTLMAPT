@@ -72,7 +72,7 @@ SimplexMethod <- function(x, MaxFunEvals = 'default', MaxIter = 'default', TolFu
 	psi <- 0.5
 	sigma <- 0.5
 	onesn <- matrix(data=1, nrow=1, ncol=n)
-	two2np1 <- c(2:n+1)
+	two2np1 <- c(2:(n+1))
 	one2n <- c(1:n)
 
 	## Set up a simplex near the initial guess
